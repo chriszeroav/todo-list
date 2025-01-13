@@ -1,11 +1,11 @@
 import { create } from "zustand";
-import { Task } from "../types/app";
+import { Task, TaskStatus } from "../types/app";
 import { v4 as uuid } from "uuid";
 
 interface State {
   tasks: Task[];
   createTask: (value: string) => void;
-  completeTask: (id: string) => void;
+  updateTask: (id: string, status: TaskStatus) => void;
 }
 
 export const useAppStore = create<State>((set, get) => {
@@ -13,17 +13,22 @@ export const useAppStore = create<State>((set, get) => {
     tasks: [],
     createTask: (value) => {
       const { tasks } = get();
-      const newTask: Task = { id: uuid(), name: value, completed: false };
+      const newTask: Task = {
+        id: uuid(),
+        name: value,
+        status: "To do",
+        created_at: new Date().toLocaleDateString(),
+      };
       const newTasks = [...tasks, newTask];
       set({ tasks: newTasks });
     },
-    completeTask: (id: string) => {
+    updateTask: (id, status) => {
       const { tasks } = get();
       const newTasks = structuredClone(tasks);
-      const taskIndex = newTasks.findIndex((item) => item.id === id);
+      const taskIndex = newTasks.findIndex((task) => task.id === id);
       newTasks[taskIndex] = {
         ...newTasks[taskIndex],
-        completed: true,
+        status,
       };
       set({ tasks: newTasks });
     },
