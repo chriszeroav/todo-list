@@ -1,4 +1,4 @@
-# Prueba Técnica - React Junior
+# TODO LIST - React Junior
 
 ## Descripción del Proyecto
 
@@ -26,21 +26,3 @@ Crea una aplicación de lista de tareas (To-Do List) utilizando React. La aplica
 3. Separar la lógica en **componentes funcionales**.
 4. Diseñar un UI básico utilizando **CSS** (no se requiere diseño avanzado).
 5. Validar que no se agreguen tareas vacías.
-
----
-
-## Extras Opcionales (No Obligatorios)
-
-1. Guardar las tareas en el **localStorage** para que persistan al recargar la página.
-2. Agregar un contador que muestre el número total de tareas pendientes.
-3. Implementar un botón para borrar todas las tareas completadas.
-
----
-
-## Criterios de Evaluación
-
-1. Correcta implementación de los requisitos funcionales.
-2. Código bien estructurado y legible.
-3. Uso adecuado de componentes, props y estado.
-4. Validaciones básicas (por ejemplo, no permitir tareas vacías).
-5. Uso de herramientas modernas de React (como hooks).
