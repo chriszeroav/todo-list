@@ -16,7 +16,7 @@ export const TasksInProgress: FC<TasksInProgressProps> = () => {
       </h2>
       {tasksInProgress.length <= 0 ? (
         <div className="flex items-center justify-center">
-          <span className="text-lg text-violet-200 font-bold">
+          <span className="text-lg text-violet-300 font-bold">
             No hay tareas en proceso
           </span>
         </div>
