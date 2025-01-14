@@ -1,7 +1,12 @@
 import { FC } from "react";
 import { Menu, Counter, ProfileSettings } from "./components/layout";
 import { AddTask } from "./forms";
-import { TasksPending } from "./components/todo";
+import {
+  TasksDone,
+  TasksInProgress,
+  TasksOnApproval,
+  TasksPending,
+} from "./components/todo";
 
 interface AppProps {}
 
@@ -16,9 +21,9 @@ export const App: FC<AppProps> = () => {
         </header>
         <div className="grid grid-cols-4 gap-10">
           <TasksPending />
-          <div className="bg-violet-200/30 rounded-md py-2 px-4">Hola</div>
-          <div className="bg-green-200/30 rounded-md py-2 px-4">Hola</div>
-          <div className="bg-pink-200/30 rounded-md py-2 px-4">Hola</div>
+          <TasksInProgress />
+          <TasksOnApproval />
+          <TasksDone />
         </div>
       </section>
     </main>

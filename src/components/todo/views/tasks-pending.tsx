@@ -10,11 +10,19 @@ export const TasksPending: FC<TasksPendingProps> = () => {
   const tasksPending = tasks.filter((task) => task.status === "To do");
 
   return (
-    <div className="bg-amber-200/30 rounded-3xl py-2 px-4 grid grid-rows-[auto_1fr]">
+    <div className="bg-amber-200/30 rounded-3xl p-4 grid grid-rows-[auto_1fr]">
       <h2 className="text-amber-500 text-xl font-medium py-3 px-4">
-        Por Hacer
+        Pendientes
       </h2>
-      <TasksPendingList data={tasksPending} />
+      {tasksPending.length <= 0 ? (
+        <div className="flex items-center justify-center">
+          <span className="text-lg text-amber-300 font-bold">
+            No hay tareas pendientes
+          </span>
+        </div>
+      ) : (
+        <TasksPendingList data={tasksPending} />
+      )}
     </div>
   );
 };

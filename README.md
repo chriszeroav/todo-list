@@ -12,8 +12,8 @@ Crea una aplicación de lista de tareas (To-Do List) utilizando React. La aplica
    El usuario debe poder escribir una tarea en un campo de texto y agregarla a la lista al hacer clic en un botón.
 2. **Listar tareas:**  
    Las tareas agregadas deben mostrarse en una lista.
-3. **Marcar como completada:**  
-   El usuario debe poder marcar una tarea como completada haciendo clic en un checkbox junto a ella.
+3. **Cambiar estado de la tarea:**  
+   El usuario debe poder marcar una tarea a los diferentes estados disponibles
 4. **Eliminar tarea:**  
    El usuario debe poder eliminar una tarea de la lista haciendo clic en un botón de eliminar junto a cada tarea.
 

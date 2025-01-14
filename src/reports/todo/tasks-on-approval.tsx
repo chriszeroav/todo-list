@@ -1,18 +1,13 @@
 import { FC } from "react";
 import { Task } from "../../types/app";
-import {
-  DoneIcon,
-  InProgressIcon,
-  OnApprovalIcon,
-  TrashIcon,
-} from "../../icons";
+import { DoneIcon, InProgressIcon, PendingIcon, TrashIcon } from "../../icons";
 import { useAppStore } from "../../store";
 
-interface TasksPendingProps {
+interface TasksOnApprovalProps {
   data: Task[];
 }
 
-export const TasksPending: FC<TasksPendingProps> = ({ data }) => {
+export const TasksOnApproval: FC<TasksOnApprovalProps> = ({ data }) => {
   const updateStatus = useAppStore((state) => state.updateTask);
   const deleteTask = useAppStore((state) => state.deleteTask);
 
@@ -27,16 +22,16 @@ export const TasksPending: FC<TasksPendingProps> = ({ data }) => {
           <p className="text-neutral-400 text-xs">{item.created_at}</p>
           <div className="flex gap-2 justify-end">
             <button
+              onClick={() => updateStatus(item.id, "To do")}
+              className="bg-amber-200/90 size-8 rounded-md flex items-center justify-center group hover:bg-amber-300/60 transition-colors"
+            >
+              <PendingIcon className="size-5 group-hover:animate-jiggle" />
+            </button>
+            <button
               onClick={() => updateStatus(item.id, "In progress")}
               className="bg-violet-200/90 size-8 rounded-md flex items-center justify-center group hover:bg-violet-300/60 transition-colors"
             >
               <InProgressIcon className="size-5 group-hover:animate-jiggle" />
-            </button>
-            <button
-              onClick={() => updateStatus(item.id, "On approval")}
-              className="bg-green-200/90 size-8 rounded-md flex items-center justify-center group hover:bg-green-300/60 transition-colors"
-            >
-              <OnApprovalIcon className="size-5 group-hover:animate-jiggle" />
             </button>
             <button
               onClick={() => updateStatus(item.id, "Done")}
@@ -56,5 +51,3 @@ export const TasksPending: FC<TasksPendingProps> = ({ data }) => {
     </div>
   );
 };
-
-export default TasksPending;

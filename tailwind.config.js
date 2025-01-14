@@ -1,3 +1,4 @@
+import animations from "@midudev/tailwind-animations";
 import defaultTheme from "tailwindcss/defaultTheme";
 
 /** @type {import('tailwindcss').Config} */
@@ -10,5 +11,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [animations],
 };

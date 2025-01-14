@@ -5,7 +5,7 @@ interface ProfileSettingsProps {}
 
 export const ProfileSettings: FC<ProfileSettingsProps> = () => {
   return (
-    <div className="flex items-center gap-2 py-5">
+    <div className="flex items-center gap-4 py-5">
       <img
         className="size-8 rounded-full object-cover"
         src="/profile.jpg"

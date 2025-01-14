@@ -6,6 +6,7 @@ interface State {
   tasks: Task[];
   createTask: (value: string) => void;
   updateTask: (id: string, status: TaskStatus) => void;
+  deleteTask: (id: string) => void;
 }
 
 export const useAppStore = create<State>((set, get) => {
@@ -30,6 +31,12 @@ export const useAppStore = create<State>((set, get) => {
         ...newTasks[taskIndex],
         status,
       };
+      set({ tasks: newTasks });
+    },
+
+    deleteTask: (id: string) => {
+      const { tasks } = get();
+      const newTasks = [...tasks].filter((item) => item.id !== id);
       set({ tasks: newTasks });
     },
   };
